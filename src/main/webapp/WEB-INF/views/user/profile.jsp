@@ -101,7 +101,7 @@
 <!--로그아웃, 회원정보변경 모달-->
 <div class="modal-info" onclick="modalInfo()">
 	<div class="modal">
-		<button onclick="location.href='/user/update'">회원정보 변경</button>
+		<button onclick="location.href='/user/1/update'">회원정보 변경</button>
 		<button onclick="location.href='/logout'">로그아웃</button>
 		<button onclick="closePopup('.modal-info')">취소</button>
 	</div>
@@ -132,7 +132,7 @@
 
 			<div class="subscribe__item" id="subscribeModalItem-1">
 				<div class="subscribe__img">
-					<img src="#" onerror="this.src='/images/person.jpeg'"/>
+					<img src="#" onerror="this.src='/images/person.jpeg'" />
 				</div>
 				<div class="subscribe__text">
 					<h2>love</h2>
@@ -145,7 +145,7 @@
 
 			<div class="subscribe__item" id="subscribeModalItem-2">
 				<div class="subscribe__img">
-					<img src="#" onerror="this.src='/images/person.jpeg'"/>
+					<img src="#" onerror="this.src='/images/person.jpeg'" />
 				</div>
 				<div class="subscribe__text">
 					<h2>ssar</h2>
