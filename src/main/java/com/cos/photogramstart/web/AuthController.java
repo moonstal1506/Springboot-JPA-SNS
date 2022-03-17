@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.photogramstart.domain.user.User;
+import com.cos.photogramstart.handler.ex.CustomValidationException;
 import com.cos.photogramstart.service.AuthService;
 import com.cos.photogramstart.web.dto.auth.SignupDto;
 
@@ -49,7 +50,7 @@ public class AuthController {
 	//회원가입 버튼 -> /auth/signup-> /auth/signin
 	//안되는 이유 csrf토큰
 	@PostMapping("/auth/signup")
-	public @ResponseBody String signup(@Valid SignupDto signupDto, BindingResult bindingResult) {//key=value(x-www-form-urlencoded)
+	public String signup(@Valid SignupDto signupDto, BindingResult bindingResult) {//key=value(x-www-form-urlencoded)
 		
 		if(bindingResult.hasErrors()) {
 			Map<String, String> errorMap= new HashMap<>();
@@ -59,7 +60,7 @@ public class AuthController {
 				System.out.println(error.getDefaultMessage());
 				System.out.println("=================");
 			}
-			return "오류";
+			throw new CustomValidationException("유효성검사 실패",errorMap);
 		}else {
 			//User<-SignupDto
 			User user = signupDto.toEntity();
