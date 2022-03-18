@@ -14,5 +14,7 @@ import lombok.NoArgsConstructor;
 public class UserProfileDto {
 	private boolean pageOwnerState;
 	private int imageCount;//최종데이터를 만들어 가는게 좋다
+	private boolean subscribeState;
+	private int subscribeCount;
 	private User user;
 }
