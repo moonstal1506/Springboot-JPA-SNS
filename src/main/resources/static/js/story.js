@@ -8,9 +8,11 @@
  */
 
 // (1) 스토리 로드하기
+let page =0;
+
 function storyLoad() {
   $.ajax({
-    url: `/api/image`,
+    url: `/api/image?page=${page}`,
     dataType: "json",
   })
     .done((res) => {
@@ -81,7 +83,19 @@ function getStoryItem(image) {
 }
 
 // (2) 스토리 스크롤 페이징하기
-$(window).scroll(() => {});
+$(window).scroll(() => {
+	/*console.log("윈도우 scrollTop",$(window).scrollTop());
+	console.log("문서 높이",$(document).height());
+	console.log("윈도우 높이",$(window).height());*/
+	
+	let checkNum =$(window).scrollTop()-($(document).height()-$(window).height());
+	console.log(checkNum);
+	
+	if(-1<checkNum&&checkNum<1){
+		page++
+		storyLoad();
+	}
+});
 
 // (3) 좋아요, 안좋아요
 function toggleLike() {
