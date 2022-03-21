@@ -45,13 +45,15 @@ public class Image {//N
 	@OneToMany(mappedBy = "image")
 	private List<Likes> likes;
 
+	@Transient//DB에 칼럼이 만들어지지 않는다.
+	private boolean likeState;
+	
+	@Transient
+	private int likeCount;
 	
 	//댓글
 	
 	
-	
-	@Transient//DB에 칼럼이 만들어지지 않는다.
-	private boolean likeState;
 	
 	private LocalDateTime createDate;
 	
