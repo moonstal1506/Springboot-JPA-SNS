@@ -3,6 +3,7 @@ package com.cos.photogramstart.web.api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,8 +29,9 @@ public class CommentApiController {
 		return new ResponseEntity<>(new CMRespDto<>(1,"댓글쓰기성공",comment),HttpStatus.CREATED);
 	}
 
-	@PostMapping("/api/comment/{id}")
+	@DeleteMapping("/api/comment/{id}")
 	public ResponseEntity<?> commentDelte(@PathVariable int id) {
-		return null;
+		commentService.댓글삭제(id);
+		return new ResponseEntity<>(new CMRespDto<>(1,"댓글삭제성공",null),HttpStatus.OK);
 	}
 }
