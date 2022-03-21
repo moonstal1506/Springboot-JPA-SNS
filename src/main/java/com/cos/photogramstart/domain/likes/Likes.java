@@ -46,5 +46,5 @@ public class Likes {//n
 	@PrePersist // db에 insert 되기 직전에 실행
 	public void createDate() {
 		this.createDate = LocalDateTime.now();
-	}
+	}//native 쿼리 써서 안됨
 }
