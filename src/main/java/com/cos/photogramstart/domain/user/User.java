@@ -34,7 +34,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//번호 증가 전략 데이터베이스 따라감
 	private int id;
 	
-	@Column(length=20, unique=true)
+	@Column(length=100, unique=true)//OAuth2 로그인 위해 칼럼 늘리기
 	private String username;
 	@Column(nullable = false)
 	private String password;
